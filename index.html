@@ -3,61 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo Periodontal Clínico</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Catálogo de Cirugía Periodontal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.5;
+      color: #1f1f1f;
+      background-color: #ffffff;
+    }
+
+    main {
+      min-height: 200px;
+      padding: 2rem 1.5rem;
+    }
+
+    .pink-banner {
+      position: relative;
+      background-color: #f8c8dc;
+      padding: 2.25rem 1.5rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .pink-banner h3 {
+      margin-bottom: 0.4rem;
+      font-size: 1.25rem;
+    }
+
+    .star {
+      position: absolute;
+      font-size: 1rem;
+      opacity: 0.7;
+      user-select: none;
+    }
+
+    .star-7 {
+      top: 16px;
+      left: 12%;
+    }
+
+    .star-8 {
+      bottom: 16px;
+      right: 12%;
+    }
+
+    .lilac-footer {
+      background-color: #d8c7f3;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .footer-logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+      padding-top: 1rem;
+      font-size: 0.8rem;
+    }
+  </style>
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <h1>Catálogo Periodontal</h1>
-      <p>Guía clínica de diagnósticos, procedimientos quirúrgicos y no quirúrgicos</p>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="controls">
-      <input 
-        type="text" 
-        id="searchInput" 
-        placeholder="Buscar por nombre, código o indicación..." 
-        aria-label="Buscar tratamiento periodontal"
-      />
-      <div class="filters" id="categoryFilters">
-        <button class="filter-btn active" data-category="all">Todos</button>
-        <button class="filter-btn" data-category="Diagnostico">Diagnóstico</button>
-        <button class="filter-btn" data-category="No Quirurgico">Terapia No Quirúrgica</button>
-        <button class="filter-btn" data-category="Quirurgico">Cirugía Periodontal</button>
-        <button class="filter-btn" data-category="Regenerativo">Regeneración / Mucogingival</button>
-      </div>
-    </section>
-
-    <section id="catalogGrid" class="catalog-grid">
-      <!-- Las tarjetas se generan dinámicamente desde app.js -->
-    </section>
+  <main>
+    <!-- Pega aquí el contenido principal de tu catálogo si tenías algo más arriba -->
   </main>
 
-  <!-- Modal de detalle -->
-  <div id="detailModal" class="modal hidden" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button id="closeModal" class="close-btn" aria-label="Cerrar">&times;</button>
-      <span id="modalCode" class="badge"></span>
-      <h2 id="modalTitle"></h2>
-      <p id="modalCategory" class="modal-category"></p>
-      <hr />
-      <div class="modal-body">
-        <p><strong>Descripción clínica:</strong> <span id="modalDescription"></span></p>
-        <p><strong>Indicaciones:</strong> <span id="modalIndications"></span></p>
-        <p><strong>Instrumental / Protocolo:</strong> <span id="modalProtocol"></span></p>
-      </div>
-    </div>
-  </div>
+  <!-- Franja rosa inferior -->
+  <section class="pink-banner">
+    <span class="star star-7" aria-hidden="true">✦</span>
+    <span class="star star-8" aria-hidden="true">✦</span>
+    <h3>Organizado por tiempos quirúrgicos</h3>
+    <p>Ideal para repaso clínico, prácticas de laboratorio y consulta rápida.</p>
+  </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p>Catálogo Periodontal &copy; 2026 — Uso Clínico y Académico</p>
+  <!-- Footer lila -->
+  <footer class="lilac-footer">
+    <div class="footer-brand">
+      <div class="footer-logo">NICOLE &amp; LUCERO</div>
+      <p>Catálogo de Cirugía Periodontal</p>
+    </div>
+
+    <div class="footer-links">
+      <span>INCISIÓN</span>
+      <span>LIMPIEZA</span>
+      <span>CIRUGÍA ÓSEA</span>
+      <span>SUTURA</span>
+    </div>
+
+    <div class="footer-bottom">
+      <span>CATÁLOGO ACADÉMICO · CIRUGÍA PERIODONTAL</span>
     </div>
   </footer>
-
-  <script src="app.js"></script>
 </body>
 </html>
