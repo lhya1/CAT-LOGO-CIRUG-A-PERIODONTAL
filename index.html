@@ -1,475 +1,137 @@
-:root {
-  --lilac-bg: #cbbcd8;
-  --lilac-soft: #d7c9e3;
-  --lilac-deep: #b8a4cb;
-  --pink-bg: #ecc8da;
-  --pink-accent: #e3b4cc;
-  --plum: #5b2c83;
-  --plum-dark: #3f1d5c;
-  --white: #ffffff;
-  --ink: #2b1d38;
-  --ink-muted: #5d4b6e;
-  --border: #3b264d;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Cirugía Periodontal | Nicole Giraldo y Lucero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="outer-frame">
+    <div class="page-shell">
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+      <!-- Barra superior -->
+      <nav class="topbar">
+        <span class="nav-meta">CIRUGÍA PERIODONTAL</span>
+        <a href="#catalogo" class="brand-logo">NICOLE &amp; LUCERO</a>
+        <a href="#catalogo" class="pill-btn">VER CATÁLOGO →</a>
+      </nav>
 
-html {
-  scroll-behavior: smooth;
-}
+      <!-- Hero en rosa pastel con estrellas -->
+      <header class="hero-pink">
+        <span class="star star-1">✦</span>
+        <span class="star star-2">✧</span>
+        <span class="star star-3">✦</span>
+        <span class="star star-4">✧</span>
 
-body {
-  background-color: var(--lilac-bg);
-  color: var(--ink);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  line-height: 1.55;
-}
+        <div class="hero-content">
+          <span class="kicker">GUÍA VISUAL DE INSTRUMENTAL</span>
+          <h1>Cirugía periodontal.<br />Precisión &amp; detalle.</h1>
+          <p class="hero-desc">
+            Catálogo organizado por tiempos quirúrgicos con referencias, marcas y características
+            de cada instrumento recopilado en el dossier de <strong>Nicole Giraldo y Lucero</strong>.
+          </p>
+          <a href="#catalogo" class="cta-dark">EXPLORAR INSTRUMENTOS →</a>
+        </div>
+      </header>
 
-h1, h2, h3, .brand-logo, .footer-logo, .filter-btn, .cta-dark, .pill-btn {
-  font-family: 'Fredoka', sans-serif;
-}
+      <!-- Franja lila con 4 bloques -->
+      <section class="lilac-strip" aria-label="Resumen del catálogo">
+        <div class="strip-item">
+          <span class="strip-icon">✂️</span>
+          <strong>Incisión y colgajo</strong>
+          <small>Bisturís y periostotomo</small>
+        </div>
+        <div class="strip-item">
+          <span class="strip-icon">✨</span>
+          <strong>Limpieza radicular</strong>
+          <small>Gracey, Columbia y fresas</small>
+        </div>
+        <div class="strip-item">
+          <span class="strip-icon">🦴</span>
+          <strong>Cirugía ósea</strong>
+          <small>Limas, gubias y hueso</small>
+        </div>
+        <div class="strip-item">
+          <span class="strip-icon">🧵</span>
+          <strong>Visión y sutura</strong>
+          <small>Separadores e hilos</small>
+        </div>
+      </section>
 
-.outer-frame {
-  padding: 28px 16px 48px;
-}
+      <!-- Buscador y filtros -->
+      <section class="intro-section" id="catalogo">
+        <span class="star star-5">✦</span>
+        <span class="star star-6">✧</span>
 
-.page-shell {
-  max-width: 1080px;
-  margin: 0 auto;
-  background: var(--white);
-  border: 2px solid var(--border);
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: 0 18px 40px rgba(59, 38, 77, 0.14);
-}
+        <div class="intro-box">
+          <h2>Todo el instrumental, en un vistazo</h2>
+          <p>
+            Filtra por etapa quirúrgica o busca por nombre, numeración o marca para repasar
+            rápidamente cada pieza del catálogo.
+          </p>
 
-/* Topbar */
-.topbar {
-  background: var(--pink-bg);
-  border-bottom: 1.5px solid rgba(59, 38, 77, 0.18);
-  padding: 14px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
+          <div class="search-wrap">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar por instrumento, número o marca (ej. Gracey, Medicaline, 15, Bader)..."
+              aria-label="Buscar instrumento"
+            />
+          </div>
 
-.nav-meta {
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--plum);
-}
+          <div class="filters" id="categoryFilters">
+            <button class="filter-btn active" data-category="all">Todos</button>
+            <button class="filter-btn" data-category="incision">Incisión</button>
+            <button class="filter-btn" data-category="despegamiento">Despegamiento</button>
+            <button class="filter-btn" data-category="limpieza">Limpieza y pulido</button>
+            <button class="filter-btn" data-category="pinzas">Pinzas</button>
+            <button class="filter-btn" data-category="osea">Cirugía ósea</button>
+            <button class="filter-btn" data-category="visualizacion">Visualización</button>
+            <button class="filter-btn" data-category="sutura">Sutura</button>
+          </div>
+        </div>
+      </section>
 
-.brand-logo {
-  text-decoration: none;
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--plum);
-  letter-spacing: 0.03em;
-  line-height: 1;
-  text-align: center;
-}
+      <!-- Zona blanca con tarjetas -->
+      <main class="catalog-white">
+        <div class="catalog-header">
+          <span id="resultsCount">Mostrando instrumentos</span>
+        </div>
+        <div id="catalogGrid" class="grid"></div>
+      </main>
 
-.pill-btn {
-  text-decoration: none;
-  background: var(--plum);
-  color: var(--white);
-  font-size: 0.75rem;
-  letter-spacing: 0.06em;
-  padding: 7px 14px;
-  border-radius: 999px;
-  transition: transform 0.15s ease, background 0.15s ease;
-}
+      <!-- Franja rosa inferior -->
+      <section class="pink-banner">
+        <span class="star star-7">✧</span>
+        <span class="star star-8">✦</span>
+        <h3>Organizado por tiempos quirúrgicos</h3>
+        <p>Ideal para repaso clínico, prácticas de laboratorio y consulta rápida.</p>
+      </section>
 
-.pill-btn:hover {
-  background: var(--plum-dark);
-  transform: translateY(-1px);
-}
+      <!-- Footer lila -->
+      <footer class="lilac-footer">
+        <div class="footer-brand">
+          <div class="footer-logo">NICOLE &amp; LUCERO</div>
+          <p>Catálogo de Cirugía Periodontal</p>
+        </div>
+        <div class="footer-links">
+          <span>INCISIÓN</span>
+          <span>LIMPIEZA</span>
+          <span>CIRUGÍA ÓSEA</span>
+          <span>SUTURA</span>
+        </div>
+        <div class="footer-bottom">
+          <span>CATÁLOGO ACADÉMICO · CIRUGÍA PERIODONTAL</span>
+        </div>
+      </footer>
 
-/* Hero Rosa */
-.hero-pink {
-  position: relative;
-  background: radial-gradient(circle at 20% 20%, #f4d8e6 0%, var(--pink-bg) 65%, var(--pink-accent) 100%);
-  padding: 64px 24px 72px;
-  text-align: center;
-  overflow: hidden;
-}
+    </div>
+  </div>
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 620px;
-  margin: 0 auto;
-}
-
-.kicker {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.72);
-  color: var(--plum);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  padding: 5px 12px;
-  border-radius: 999px;
-  margin-bottom: 14px;
-}
-
-.hero-pink h1 {
-  font-size: clamp(2.2rem, 5vw, 3.3rem);
-  color: var(--plum);
-  line-height: 1.08;
-  margin-bottom: 14px;
-}
-
-.hero-desc {
-  font-size: 0.98rem;
-  color: var(--ink);
-  margin-bottom: 24px;
-}
-
-.cta-dark {
-  display: inline-block;
-  text-decoration: none;
-  background: var(--plum);
-  color: var(--white);
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  padding: 12px 24px;
-  border-radius: 999px;
-  box-shadow: 0 6px 0 var(--plum-dark);
-  transition: transform 0.15s ease;
-}
-
-.cta-dark:hover {
-  transform: translateY(-2px);
-}
-
-/* Estrellas decorativas estilo referencia */
-.star {
-  position: absolute;
-  color: var(--white);
-  font-size: 1.35rem;
-  opacity: 0.9;
-  user-select: none;
-  pointer-events: none;
-}
-
-.star-1 { top: 24px; left: 9%; font-size: 1.5rem; }
-.star-2 { top: 65px; right: 12%; font-size: 1.1rem; }
-.star-3 { bottom: 28px; left: 16%; font-size: 1.1rem; }
-.star-4 { bottom: 34px; right: 10%; font-size: 1.5rem; }
-.star-5 { top: 22px; left: 7%; color: var(--lilac-deep); }
-.star-6 { top: 36px; right: 8%; color: var(--lilac-deep); }
-.star-7 { top: 18px; left: 12%; }
-.star-8 { bottom: 18px; right: 14%; }
-
-/* Franja Lila de 4 bloques */
-.lilac-strip {
-  background: var(--lilac-bg);
-  padding: 26px 24px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-  border-top: 1.5px solid rgba(59, 38, 77, 0.15);
-  border-bottom: 1.5px solid rgba(59, 38, 77, 0.15);
-}
-
-.strip-item {
-  background: rgba(255, 255, 255, 0.45);
-  border: 1.5px solid rgba(59, 38, 77, 0.22);
-  border-radius: 16px;
-  padding: 14px 12px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.strip-icon {
-  font-size: 1.35rem;
-}
-
-.strip-item strong {
-  font-size: 0.9rem;
-  color: var(--plum);
-}
-
-.strip-item small {
-  font-size: 0.78rem;
-  color: var(--ink-muted);
-}
-
-/* Sección buscador y filtros en rosa suave */
-.intro-section {
-  position: relative;
-  background: #f7e6ef;
-  padding: 48px 24px;
-  text-align: center;
-}
-
-.intro-box {
-  position: relative;
-  z-index: 2;
-  max-width: 780px;
-  margin: 0 auto;
-}
-
-.intro-box h2 {
-  font-size: 1.85rem;
-  color: var(--plum);
-  margin-bottom: 8px;
-}
-
-.intro-box p {
-  color: var(--ink-muted);
-  font-size: 0.95rem;
-  margin-bottom: 22px;
-}
-
-.search-wrap {
-  max-width: 540px;
-  margin: 0 auto 18px;
-}
-
-#searchInput {
-  width: 100%;
-  padding: 13px 20px;
-  border-radius: 999px;
-  border: 2px solid var(--border);
-  background: var(--white);
-  color: var(--ink);
-  font-size: 0.95rem;
-  outline: none;
-  box-shadow: 0 4px 0 rgba(91, 44, 131, 0.14);
-}
-
-#searchInput:focus {
-  border-color: var(--plum);
-}
-
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-}
-
-.filter-btn {
-  background: var(--white);
-  color: var(--plum);
-  border: 1.5px solid var(--border);
-  padding: 7px 15px;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.filter-btn:hover {
-  background: var(--lilac-soft);
-}
-
-.filter-btn.active {
-  background: var(--plum);
-  color: var(--white);
-  border-color: var(--plum);
-  box-shadow: 0 3px 0 var(--plum-dark);
-}
-
-/* Zona blanca del catálogo */
-.catalog-white {
-  background: var(--white);
-  padding: 36px 28px 52px;
-}
-
-.catalog-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 22px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--ink-muted);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-  gap: 22px;
-}
-
-.card {
-  background: var(--white);
-  border: 2px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 6px 0 rgba(203, 188, 216, 0.65);
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 0 rgba(236, 200, 218, 0.95);
-}
-
-.card-img-box {
-  position: relative;
-  height: 195px;
-  background: #faf5fa;
-  border-bottom: 1.5px solid rgba(59, 38, 77, 0.16);
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-img-box img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.page-pill {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: var(--lilac-bg);
-  color: var(--plum);
-  border: 1px solid rgba(59, 38, 77, 0.25);
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 2px 9px;
-  border-radius: 999px;
-}
-
-.card-body {
-  padding: 16px 18px 18px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.card-cat {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #8c489f;
-  margin-bottom: 4px;
-}
-
-.card-title {
-  font-size: 1.12rem;
-  color: var(--plum);
-  margin-bottom: 8px;
-  line-height: 1.25;
-}
-
-.card-desc {
-  font-size: 0.88rem;
-  color: var(--ink-muted);
-  margin-bottom: 14px;
-  flex-grow: 1;
-}
-
-.card-specs {
-  list-style: none;
-  border-top: 1.5px dashed rgba(59, 38, 77, 0.2);
-  padding-top: 10px;
-  font-size: 0.8rem;
-  color: var(--ink);
-}
-
-.card-specs li {
-  margin-bottom: 4px;
-}
-
-.card-specs strong {
-  color: var(--plum);
-}
-
-/* Franja rosa inferior */
-.pink-banner {
-  position: relative;
-  background: var(--pink-bg);
-  border-top: 1.5px solid rgba(59, 38, 77, 0.18);
-  padding: 36px 24px;
-  text-align: center;
-}
-
-.pink-banner h3 {
-  font-size: 1.45rem;
-  color: var(--plum);
-  margin-bottom: 4px;
-}
-
-.pink-banner p {
-  font-size: 0.9rem;
-  color: var(--ink-muted);
-}
-
-/* Footer lila */
-.lilac-footer {
-  background: var(--lilac-bg);
-  border-top: 1.5px solid rgba(59, 38, 77, 0.18);
-  padding: 32px 28px 20px;
-}
-
-.footer-brand {
-  text-align: center;
-  margin-bottom: 18px;
-}
-
-.footer-logo {
-  font-size: 1.7rem;
-  color: var(--plum);
-  line-height: 1.05;
-}
-
-.footer-brand p {
-  font-size: 0.85rem;
-  color: var(--ink-muted);
-  margin-top: 4px;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 18px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--plum);
-  margin-bottom: 20px;
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(59, 38, 77, 0.16);
-  padding-top: 14px;
-  text-align: center;
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  color: var(--ink-muted);
-}
-
-@media (max-width: 600px) {
-  .outer-frame {
-    padding: 12px 8px 24px;
-  }
-  .page-shell {
-    border-radius: 18px;
-  }
-  .catalog-white {
-    padding: 24px 16px 36px;
-  }
-}
+  <script src="script.js"></script>
+</body>
+</html>
