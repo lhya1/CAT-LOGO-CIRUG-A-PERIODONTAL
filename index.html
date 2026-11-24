@@ -3,60 +3,234 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo Periodontal Clínico</title>
+  <title>Catálogo Periodontal — Edición Clínica & Instrumental</title>
+  <!-- Tipografías editoriales estilo collage serif + sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="header">
-    <div class="container">
-      <h1>Catálogo Periodontal</h1>
-      <p>Guía clínica de diagnósticos, procedimientos quirúrgicos y no quirúrgicos</p>
+
+  <!-- SECCIÓN 1: HERO (Azul Marino Profundo) -->
+  <header class="section-navy hero">
+    <nav class="top-nav container">
+      <span class="brand-tag">ATLAS CLÍNICO</span>
+      <ul class="nav-links">
+        <li><a href="#clasificacion">Clasificación</a></li>
+        <li><a href="#instrumental">Instrumental</a></li>
+        <li><a href="#protocolos">Protocolos</a></li>
+      </ul>
+    </nav>
+
+    <div class="container hero-grid">
+      <div class="hero-visual">
+        <!-- Ilustración / composición estilo collage -->
+        <div class="collage-card hero-emblem">
+          <svg viewBox="0 0 200 180" class="pearl-tooth-svg" aria-hidden="true">
+            <defs>
+              <radialGradient id="enamelGrad" cx="40%" cy="35%" r="65%">
+                <stop offset="0%" stop-color="#ffffff" />
+                <stop offset="65%" stop-color="#e2e8f0" />
+                <stop offset="100%" stop-color="#94a3b8" />
+              </radialGradient>
+              <linearGradient id="gumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#c4b5fd" />
+                <stop offset="100%" stop-color="#7c3aed" />
+              </linearGradient>
+            </defs>
+            <!-- Encía estilizada tipo concha -->
+            <path d="M20,120 Q100,175 180,120 Q150,95 100,105 Q50,95 20,120 Z" fill="url(#gumGrad)" opacity="0.85"/>
+            <!-- Corona dental nacarada -->
+            <path d="M62,42 C62,22 92,22 100,32 C108,22 138,22 138,42 C142,72 132,96 122,126 C116,142 108,136 105,112 C103,100 97,100 95,112 C92,136 84,142 78,126 C68,96 58,72 62,42 Z" fill="url(#enamelGrad)"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="hero-text">
+        <span class="paper-note rotate-left">Compendio de Periodoncia</span>
+        <h1 class="editorial-title">
+          PERIODONCIA —<br />
+          <span class="indent-line">TESOROS DEL</span><br />
+          SOPORTE DENTAL
+        </h1>
+        <p class="hero-subtitle">
+          Catálogo interactivo de diagnóstico, instrumental quirúrgico y terapias de regeneración tisular.
+        </p>
+        <a href="#instrumental" class="pill-btn lavender-btn">Explorar Catálogo</a>
+      </div>
     </div>
+
+    <!-- Divisor papel rasgado inferior -->
+    <div class="torn-divider bottom-white"></div>
   </header>
 
-  <main class="container">
-    <section class="controls">
-      <input 
-        type="text" 
-        id="searchInput" 
-        placeholder="Buscar por nombre, código o indicación..." 
-        aria-label="Buscar tratamiento periodontal"
-      />
-      <div class="filters" id="categoryFilters">
-        <button class="filter-btn active" data-category="all">Todos</button>
-        <button class="filter-btn" data-category="Diagnostico">Diagnóstico</button>
-        <button class="filter-btn" data-category="No Quirurgico">Terapia No Quirúrgica</button>
-        <button class="filter-btn" data-category="Quirurgico">Cirugía Periodontal</button>
-        <button class="filter-btn" data-category="Regenerativo">Regeneración / Mucogingival</button>
+  <!-- SECCIÓN 2: INSTRUMENTAL & CATÁLOGO INTERACTIVO (Blanco Papel) -->
+  <section id="instrumental" class="section-paper">
+    <div class="container">
+      <div class="section-header-editorial">
+        <span class="section-num">01</span>
+        <h2 class="editorial-heading">INSTRUMENTAL<br /><span class="indent-line">DEL CATÁLOGO</span></h2>
       </div>
-    </section>
 
-    <section id="catalogGrid" class="catalog-grid">
-      <!-- Las tarjetas se generan dinámicamente desde app.js -->
-    </section>
-  </main>
+      <!-- Barra de búsqueda y filtros estilo recorte de papel -->
+      <div class="catalog-controls">
+        <div class="search-wrapper">
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Buscar cureta, sonda, código o procedimiento..." 
+            aria-label="Buscar en catálogo periodontal"
+          />
+        </div>
+        <div class="filter-pills" id="categoryFilters">
+          <button class="pill-filter active" data-category="all">Todos</button>
+          <button class="pill-filter" data-category="Diagnóstico">Diagnóstico</button>
+          <button class="pill-filter" data-category="Raspado">Raspado y Alisado</button>
+          <button class="pill-filter" data-category="Cirugía">Cirugía</button>
+          <button class="pill-filter" data-category="Regeneración">Regeneración</button>
+        </div>
+      </div>
 
-  <!-- Modal de detalle -->
-  <div id="detailModal" class="modal hidden" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button id="closeModal" class="close-btn" aria-label="Cerrar">&times;</button>
-      <span id="modalCode" class="badge"></span>
-      <h2 id="modalTitle"></h2>
-      <p id="modalCategory" class="modal-category"></p>
-      <hr />
-      <div class="modal-body">
-        <p><strong>Descripción clínica:</strong> <span id="modalDescription"></span></p>
-        <p><strong>Indicaciones:</strong> <span id="modalIndications"></span></p>
-        <p><strong>Instrumental / Protocolo:</strong> <span id="modalProtocol"></span></p>
+      <!-- Grid asimétrico tipo collage -->
+      <div id="catalogGrid" class="collage-grid">
+        <!-- Se rellena dinámicamente desde app.js -->
+      </div>
+    </div>
+
+    <!-- Divisor papel rasgado hacia azul marino -->
+    <div class="torn-divider bottom-navy"></div>
+  </section>
+
+  <!-- SECCIÓN 3: INTERLUDIO VISUAL / ANATOMÍA DEL PERIODONTO (Azul Marino) -->
+  <section id="clasificacion" class="section-navy interlude-section">
+    <div class="container interlude-grid">
+      <div class="interlude-copy">
+        <span class="section-num light">02</span>
+        <h2 class="editorial-heading light">LA DEFENSA<br /><span class="indent-line">BIOLÓGICA</span></h2>
+        <p>
+          El periodonto actúa como una unidad funcional de protección e inserción: encía, ligamento periodontal, cemento radicular y hueso alveolar trabajan en equilibrio frente al biofilm bacteriano.
+        </p>
+        <div class="paper-scrap-box">
+          <strong>3–4 mm</strong>
+          <span>Profundidad fisiológica del surco gingival sano sin sangrado al sondaje.</span>
+        </div>
+      </div>
+
+      <div class="interlude-timeline">
+        <div class="timeline-item">
+          <span class="badge-lavender">Fase I</span>
+          <h3>Terapia Causa-Relacionada</h3>
+          <p>Control de placa supragingival, instrucción de higiene oral y desbridamiento subgingival.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="badge-lavender">Fase II</span>
+          <h3>Terapia Correctiva / Quirúrgica</h3>
+          <p>Colgajos de acceso, cirugía resectiva ósea o regeneración tisular guiada en bolsas residuales.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="badge-lavender">Fase III</span>
+          <h3>Terapia Periodontal de Soporte</h3>
+          <p>Mantenimiento periódico individualizado cada 3 a 6 meses según riesgo periodontal.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="torn-divider bottom-white"></div>
+  </section>
+
+  <!-- SECCIÓN 4: BIOMATERIALES Y TIPOS DE DEFECTOS (Blanco Papel) -->
+  <section id="protocolos" class="section-paper">
+    <div class="container">
+      <div class="section-header-editorial">
+        <span class="section-num">03</span>
+        <h2 class="editorial-heading">MORFOLOGÍA<br /><span class="indent-line">Y BIOMATERIALES</span></h2>
+      </div>
+
+      <div class="specimens-row">
+        <article class="specimen-card">
+          <div class="specimen-tag">Xenoinjerto</div>
+          <h3>Matriz Ósea Mineral</h3>
+          <p>Andamio osteoconductor de reabsorción lenta ideal para preservación alveolar y defectos intraóseos contenidos.</p>
+        </article>
+        <article class="specimen-card">
+          <div class="specimen-tag">Membrana</div>
+          <h3>Barrera de Colágeno</h3>
+          <p>Exclusión epitelial selectiva que permite la repoblación del defecto por células del ligamento periodontal.</p>
+        </article>
+        <article class="specimen-card">
+          <div class="specimen-tag">Biológicos</div>
+          <h3>Derivados de Matriz del Esmalte</h3>
+          <p>Proteínas amelogeninas que estimulan la cementogénesis y la regeneración de nueva inserción.</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- Divisor hacia sección lavanda -->
+    <div class="torn-divider bottom-lavender"></div>
+  </section>
+
+  <!-- SECCIÓN 5: PROTOCOLO ESTRELLA (Lavanda Editorial) -->
+  <section class="section-lavender featured-section">
+    <div class="container featured-grid">
+      <div class="featured-header">
+        <span class="section-num light">04</span>
+        <h2 class="editorial-heading light">SECUENCIA DE<br /><span class="indent-line">CURETAS GRACEY</span></h2>
+      </div>
+
+      <div class="gracey-map">
+        <div class="gracey-node">
+          <span class="node-code">1/2 – 3/4</span>
+          <p>Dientes anteriores (incisivos y caninos)</p>
+        </div>
+        <div class="gracey-node">
+          <span class="node-code">5/6</span>
+          <p>Dientes anteriores y premolares</p>
+        </div>
+        <div class="gracey-node">
+          <span class="node-code">7/8 – 9/10</span>
+          <p>Caras libres (vestibular y lingual) de posteriores</p>
+        </div>
+        <div class="gracey-node">
+          <span class="node-code">11/12</span>
+          <p>Caras mesiales de dientes posteriores</p>
+        </div>
+        <div class="gracey-node">
+          <span class="node-code">13/14</span>
+          <p>Caras distales de dientes posteriores</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="torn-divider bottom-navy"></div>
+  </section>
+
+  <!-- FOOTER (Azul Marino) -->
+  <footer class="section-navy footer-editorial">
+    <div class="container footer-content">
+      <div>
+        <span class="paper-note">Repositorio Académico</span>
+        <h3 class="footer-title">CATÁLOGO PERIODONTAL</h3>
+      </div>
+      <p class="footer-copy">Diseñado con estética editorial para documentación clínica y estudio en GitHub Pages &copy; 2026.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL DE FICHA TÉCNICA -->
+  <div id="detailModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
+    <div class="modal-paper">
+      <button id="closeModal" class="modal-close" aria-label="Cerrar">&times;</button>
+      <span id="modalCode" class="paper-note"></span>
+      <h2 id="modalTitle" class="modal-editorial-title"></h2>
+      <p id="modalCategory" class="modal-cat"></p>
+      <div class="modal-divider"></div>
+      <div class="modal-details">
+        <p><strong>Descripción técnica:</strong> <span id="modalDescription"></span></p>
+        <p><strong>Indicaciones clínicas:</strong> <span id="modalIndications"></span></p>
+        <p><strong>Protocolo y ángulo de trabajo:</strong> <span id="modalProtocol"></span></p>
       </div>
     </div>
   </div>
-
-  <footer class="footer">
-    <div class="container">
-      <p>Catálogo Periodontal &copy; 2026 — Uso Clínico y Académico</p>
-    </div>
-  </footer>
 
   <script src="app.js"></script>
 </body>
